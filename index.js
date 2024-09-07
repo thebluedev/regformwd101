@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const form = document.getElementById("registrationForm");
-    const userTableBody = document.getElementById("userTableBody");
+    let form = document.getElementById("registrationForm");
+    let userTableBody = document.getElementById("userTableBody");
   
     // Load saved data from localStorage
     loadSavedData();
@@ -8,11 +8,11 @@ document.addEventListener("DOMContentLoaded", function() {
     form.addEventListener("submit", function(event) {
       event.preventDefault();
   
-      const name = document.getElementById("name").value;
-      const email = document.getElementById("email").value;
-      const password = document.getElementById("password").value;
-      const dob = document.getElementById("dob").value;
-      const termsAccepted = document.getElementById("terms").checked;
+      let name = document.getElementById("name").value;
+      let email = document.getElementById("email").value;
+      let password = document.getElementById("password").value;
+      let dob = document.getElementById("dob").value;
+      let termsAccepted = document.getElementById("terms").checked;
   
       // Validate date of birth (ages between 18 and 55)
       if (!validateDob(dob)) {
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function() {
       }
   
       // Save user data to localStorage
-      const userData = { name, email, password, dob, termsAccepted };
+      let userData = { name, email, password, dob, termsAccepted };
       saveUserData(userData);
   
       // Add user data to the table
@@ -32,10 +32,10 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   
     function validateDob(dob) {
-      const birthDate = new Date(dob);
-      const today = new Date();
-      const age = today.getFullYear() - birthDate.getFullYear();
-      const monthDiff = today.getMonth() - birthDate.getMonth();
+      let birthDate = new Date(dob);
+      let today = new Date();
+      let age = today.getFullYear() - birthDate.getFullYear();
+      let monthDiff = today.getMonth() - birthDate.getMonth();
   
       if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
         age--;
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   
     function addToTable(userData) {
-      const row = document.createElement("tr");
+      let row = document.createElement("tr");
       row.innerHTML = `
         <td>${userData.name}</td>
         <td>${userData.email}</td>
