@@ -11,17 +11,17 @@ document.addEventListener("DOMContentLoaded", function() {
       let name = document.getElementById("name").value;
       let email = document.getElementById("email").value;
       let password = document.getElementById("password").value;
-      let dob = document.getElementById("dob").value;
+      let Dob = document.getElementById("Dob").value;
       let termsAccepted = document.getElementById("terms").checked;
   
       // Validate date of birth (ages between 18 and 55)
-      if (!validateDob(dob)) {
+      if (!validateDob(Dob)) {
         alert("Date of Birth must be for people between ages 18 and 55.");
         return;
       }
   
       // Save user data to localStorage
-      let userData = { name, email, password, dob, termsAccepted };
+      let userData = { name, email, password, Dob, termsAccepted };
       saveUserData(userData);
   
       // Add user data to the table
@@ -31,8 +31,8 @@ document.addEventListener("DOMContentLoaded", function() {
       form.reset();
     });
   
-    function validateDob(dob) {
-      let birthDate = new Date(dob);
+    function validateDob(Dob) {
+      let birthDate = new Date(Dob);
       let today = new Date();
       let age = today.getFullYear() - birthDate.getFullYear();
       let monthDiff = today.getMonth() - birthDate.getMonth();
@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function() {
         <td>${userData.name}</td>
         <td>${userData.email}</td>
         <td>${userData.password}</td>
-        <td>${userData.dob}</td>
+        <td>${userData.Dob}</td>
         <td>${userData.termsAccepted ? "Yes" : "No"}</td>
       `;
       userTableBody.appendChild(row);
